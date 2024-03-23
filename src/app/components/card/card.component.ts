@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { CardType } from '../../models/card.mode';
 
@@ -9,8 +9,8 @@ import { CardType } from '../../models/card.mode';
   imports: [CommonModule],
   template: `
     <div class="card">
-      <div>{{ card.bank | titlecase }}</div>
-      <div>{{ card.type | uppercase }}</div>
+      <div>{{ card().bank | titlecase }}</div>
+      <div>{{ card().type | uppercase }}</div>
     </div>
   `,
   styles: [
@@ -27,5 +27,5 @@ import { CardType } from '../../models/card.mode';
   ],
 })
 export class CardComponent {
-  @Input({ required: true }) card!: CardType;
+  card = input.required<CardType>();
 }
